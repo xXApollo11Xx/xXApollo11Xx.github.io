@@ -1,0 +1,989 @@
+:root {
+  /* rgba(0, 0, 0, 0.4) */
+  --purple-background: #0a0715;
+  --lightpurple-txt: #4f1d96;
+  --purple-txt: #9f47f6;
+  /* --lightbluegrey: #b7c9e2; */
+  --lightbluegrey: #BFBABF;
+  --pink: #EFBDFB;
+  --dark-pink: #D904CB;
+  --dark-purple: #3805A6;
+  --vibrant-purple: #6F04D9;
+}
+
+/* natural box model */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* hides an element on screen, but not from screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+  Narrowview Navigation
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 500,
+    'GRAD' 0,
+    'opsz' 48
+}
+
+.openbtn {
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  color: var(--pink);
+  font-family: 'PT Sans', sans-serif;
+}
+
+.openbtn:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.menu-button {
+  font-size: 36px !important;
+  position: relative;
+  top: 6px;
+  left: -4px;
+}
+
+.menu-text {
+  font-size: 12px;
+  display: block;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* The side navigation menu */
+.all-over-bkg {
+  display: none;
+}
+
+.is-visible {
+  background-color: var(--purple-background);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 9999;
+  display: block;
+}
+
+#mySidenav {
+  z-index: 10000;
+}
+
+.sidenav {
+  height: 100%;
+  /* 100% Full-height */
+  width: 0;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Stay on top */
+  top: 0;
+  /* Stay at the top */
+  left: 0;
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 60px;
+  /* Place content 60px from the top */
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in the sidenav */
+  background-color: rgba(0, 0, 0, 0.873);
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 30px;
+  display: block;
+  /* transition: 0.3s; */
+  font-family: "Teko", sans-serif;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: .5px .5px rgba(246, 0, 153, 0.8),
+    -.5px -.5px rgba(15, 210, 255, 0.8),
+    -.5px 0px var(--lightpurple-txt);
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: grey;
+  font-size: 25px;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+      WIDEVIEW NAVIGATION STYLES
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.wideview-nav {
+  display: none;
+  padding: 2rem;
+}
+
+/* Glitch effect by Alex Baldwin; find codepen here https://codepen.io/cubeghost/pen/pveWVV */
+@-webkit-keyframes wiggle {
+  0% {
+    -webkit-transform: skewX(24deg);
+  }
+
+  10% {
+    -webkit-transform: skewX(-8deg);
+  }
+
+  20% {
+    -webkit-transform: skewX(55deg);
+  }
+
+  30% {
+    -webkit-transform: skewX(-90deg);
+  }
+
+  40% {
+    -webkit-transform: skewX(29deg);
+  }
+
+  50% {
+    -webkit-transform: skewX(-90deg);
+  }
+
+  60% {
+    -webkit-transform: skewX(3deg);
+  }
+
+  70% {
+    -webkit-transform: skewX(-2deg);
+  }
+
+  80% {
+    -webkit-transform: skewX(1deg);
+  }
+
+  90% {
+    -webkit-transform: skewX(10deg);
+  }
+
+  100% {
+    -webkit-transform: skewX(0deg);
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.name a,
+a:active,
+a:visited {
+  text-decoration: none;
+}
+
+.name {
+  width: 500px;
+  display: flex;
+  overflow: hidden;
+}
+
+.name:hover {
+  -webkit-animation: wiggle 0.4s;
+}
+
+.wideview-nav h1 {
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+  font-size: 58px;
+  text-align: center;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.95);
+  /* text-shadow: 1px 1px #D904CB,
+    -1px -1px #6F04D9,
+    -1.2px 0px #3805A6; */
+}
+
+
+h1:hover {
+  -webkit-animation: wiggle 0.2s 2;
+  /*transition:all ease-out 0.1s;*/
+  text-shadow: 30px 13px #D904CB,
+    -38px -4px #6F04D9,
+    -2px -4px var(--pink);
+
+}
+
+.wideview-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 25px;
+}
+
+.wideview-nav ul li {
+  list-style-type: none;
+  display: flex;
+  overflow: hidden;
+}
+
+.wideview-nav ul li:hover {
+  -webkit-animation: wiggle 0.4s;
+}
+
+.wideview-nav ul li a {
+  text-decoration: none;
+
+
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: .5px .5px rgba(246, 0, 153, 0.8),
+    -.5px -.5px rgba(15, 210, 255, 0.8),
+    -.5px 0px var(--lightpurple-txt);
+  /* font-weight: bold; */
+}
+
+/* rgba(255, 210, 0, 1) */
+.wideview-nav ul li a:hover {
+
+  font-weight: 400;
+  color: var(--pink);
+  text-shadow: none;
+}
+
+/* dropdown for the models */
+/* W3 schools https://www.w3schools.com/howto/howto_css_dropdown.asp#:~:text=Use%20any%20element%20to%20open,dropdown%20menu%20correctly%20with%20CSS. */
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 250px;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  color: var(--pink);
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+  UTILITIES
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* no break - example; optional to keep */
+.nobr {
+  white-space: nowrap;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+  TYPOGRAPHY
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+h1,
+h2,
+h3,
+h4 {
+  /* put in fonts */
+  font-family: "Teko", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p,
+figcaption,
+a,
+a:hover {
+  /* put in fonts */
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 32px;
+  color: var(--lightbluegrey);
+  margin: 0;
+  background-color: #0a0715ad;
+  border-top: #9f47f6 1px solid;
+  border-bottom: #9f47f6 1px solid;
+  padding: .5rem 1rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+  z-index: 3;
+}
+
+h3 {
+  font-size: 40px;
+  color: var(--lightbluegrey);
+}
+
+h4 {
+  font-size: 35px;
+}
+
+h5 {
+  font-size: 35px;
+  color: var(--purple-txt);
+}
+
+p {
+  line-height: 1.5rem;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+  PAGE STYLES
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+body {
+
+  /* background-color: var(--purple-background); */
+  background-color: black;
+  color: whitesmoke;
+}
+
+main {
+  margin: 0 auto;
+  background-image: url(../images/works/BG.png);
+  border-top: var(--purple-background) 1px solid;
+}
+
+header {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  /* gap: 3rem; */
+  width: 100%;
+
+}
+
+footer {
+  /* background-color: var(--lightbluegrey); */
+  border-top: var(--purple-txt) 1px solid;
+  margin: 4rem;
+  padding: 2rem;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* FOOTER STYLES */
+footer p {
+  font-size: 35px;
+}
+
+.logo_end {
+  display: none;
+}
+
+.socials {
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+  margin: 0 auto;
+}
+
+.social_media_icons {
+  display: flex;
+  gap: .5rem;
+  margin: 0 auto;
+}
+
+/* MODELS STYLES */
+.models {
+  margin-top: 0px;
+}
+
+.characters {
+  max-width: 950px;
+  margin: 0 auto;
+  /* border: orange 1px solid; */
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+}
+
+.props {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.illustrations {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.MOV {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 10px;
+  margin: 10rem 0;
+  background-color: black;
+  /* border: var(--dark-purple) 1.5px solid;*/
+  padding: 2rem 2rem;
+}
+
+.first {
+  margin-top: 0;
+}
+
+.about-model {
+  /* border: green 1px solid; */
+  width: 100%;
+}
+
+/*  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+      ABOUT PAGE 
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.aboutSection {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.aboutSection h3 {
+  padding: 1rem 0;
+}
+
+.about {
+  margin-top: 3rem;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 2rem;
+}
+
+.izzyImage {
+  width: 100%;
+
+}
+
+.resume {
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.resume h2 {
+  margin: 2rem 0;
+}
+
+.resume iframe {
+  width: 100%;
+  height: 100vh;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+      CAROUSEL 
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.carousel {
+  height: 250px;
+  width: 250px;
+  position: relative;
+  /* background-color: black; */
+}
+
+.carousel ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: 200ms opacity ease-in-out;
+  transition-delay: 200ms;
+
+  /* FLEX */
+  display: flex;
+  align-items: center;
+
+
+}
+
+.slide img {
+  display: block;
+  margin: 0 auto;
+  max-width: 250px;
+  /*Checked this it is good*/
+  height: 100%;
+  object-fit: contain;
+}
+
+.slide iframe {
+  display: block;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  /* max-width: 250px; */
+  object-fit: contain;
+
+}
+
+.slide[data-active] {
+  opacity: 1;
+  transition-delay: 0ms;
+}
+
+
+/* text-shadow: 30px 13px #D904CB,
+    -38px -4px #6F04D9, */
+/* -2px -4px var(--pink); */
+.carousel-button {
+  position: absolute;
+  border: none;
+  background: none;
+
+  color: var(--purple-txt);
+  background-color: black;
+
+  font-size: 3rem;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
+  cursor: pointer;
+  border-radius: .25rem;
+  padding: 0 .5rem;
+
+}
+
+.carousel-button:hover,
+.carousel-button:focus {
+  color: white;
+  background-color: rgba(125, 124, 124, 0.429);
+}
+
+.carousel-button.prev {
+  left: -3rem;
+}
+
+.carousel-button.next {
+  right: -3rem;
+}
+
+
+/* special style to control slide img heights */
+.gun {
+  height: 100px;
+}
+
+.guitar {
+  object-fit: none;
+  height: 100px;
+}
+
+
+
+/*  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+      SCROLLBAR
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(128, 128, 128, 0.375);
+  /* border-radius: 25px; */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--pink);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--lightbluegrey);
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+  IMAGES
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.introSlider {
+  /* height: 500px; */
+  width: 100%;
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+}
+
+/* GALLERY FOR ILLUSTRATIONS */
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+figure {
+  margin: 0;
+}
+
+figure img {
+  width: 100%;
+  /* object-fit: stretch; */
+  max-height: 200px;
+}
+
+.happierthoughts-img {
+  margin: 0 auto;
+}
+
+.goldenlandscape-img {
+  width: 100%;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+  MEDIA QUERIES
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* MEDIA QUERIES FROM SMALLEST TO LARGEST = MOBILE FIRST */
+/* Extra small devices (portrait phones, less than 576px)
+No media query for `xs` since this is the default */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
+
+
+  /* Carousel Styles */
+
+  .carousel {
+    height: 350px;
+    width: 550px;
+  }
+
+  .carousel button {
+    font-size: 2.5rem;
+  }
+
+
+  .slide img {
+    max-width: 550px;
+    /* ?I need help only applying a width to the mobile view and going back to the default in laptop */
+  }
+
+  .slide iframe {
+    max-width: 450px;
+  }
+
+  /* ABOUT PAGE */
+  .about {
+    flex-flow: row;
+
+  }
+
+
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+  /* TEXT SIZE */
+  h1 {
+    font-size: 48px;
+  }
+
+  h2 {
+    font-size: 58px;
+  }
+
+  h3 {
+    font-size: 64px;
+  }
+
+  .about-model h4 {
+    font-size: 58px;
+  }
+
+  .about-model p {
+    font-size: 20px;
+  }
+
+  /* GALLERY */
+  .row {
+    max-height: 600px;
+    flex-flow: row;
+    justify-content: space-between;
+    /* gap: 60px; */
+  }
+
+  figure {
+    position: relative;
+  }
+
+
+
+  figure:hover {}
+
+  figcaption {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0a0715a6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    transition: opacity 0.25s;
+  }
+
+  figcaption:hover {
+    opacity: 1;
+  }
+
+  /* Carousel Styles */
+
+  .carousel {
+    height: 450px;
+    width: 650px;
+  }
+
+  .carousel button {
+    font-size: 3rem;
+  }
+
+
+  .slide img {
+    max-width: none;
+    max-height: 450px;
+    /* ?I need help only applying a width to the mobile view and going back to the default in laptop  */
+  }
+
+  .slide iframe {
+    max-width: none;
+  }
+
+  /* SPECIAL CASE AAAAAAHHHH */
+  .gun {
+    height: 350px !important;
+  }
+
+  .guitar {
+    height: 350px !important;
+  }
+
+
+  .wife {
+    width: 650px;
+  }
+
+  /* FOOTER */
+  .logo_end {
+    display: block;
+  }
+
+  .socials {
+    margin: 0;
+  }
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .gallery {
+    max-width: 850px;
+  }
+
+  .row {
+    gap: 35px;
+  }
+
+  figure img {
+
+    max-height: 350px;
+  }
+
+
+  /* Carousel Styles */
+
+  .carousel {
+    height: 650px;
+    width: 750px;
+  }
+
+  .carousel button {
+    font-size: 3rem;
+  }
+
+  /* BUTTON */
+  .carousel-button.prev {
+    left: -3rem;
+  }
+
+  .carousel-button.next {
+    right: -3rem;
+  }
+
+
+  /* NAVIGATION CHANGE */
+  .narrowview-nav {
+    display: none;
+  }
+
+  .wideview-nav {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+  }
+
+  /* CAROUSEL CHANGE */
+  .carousel-button.prev {
+    left: -5.5rem;
+  }
+
+  .carousel-button.next {
+    right: -5.5rem;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+  /* TEXT SIZE */
+  h1 {
+    font-size: 54px;
+  }
+
+  h2 {
+    font-size: 50px;
+  }
+
+  h3 {
+    font-size: 58px;
+  }
+
+  h4 {
+    font-size: 34px;
+  }
+}
+
+
+/* MEDIA QUERIES FROM LARGEST TO SMALLEST */
+/* Extra small devices (portrait phones, less than 576px) */
+/* @media (max-width: 575.98px) {
+
+} */
+
+/* Small devices (landscape phones, less than 768px) */
+/* @media (max-width: 767.98px) {
+
+} */
+
+/* Medium devices (tablets, less than 992px) */
+/* @media (max-width: 991.98px) {
+
+} */
+
+/* Large devices (desktops, less than 1200px) */
+/* @media (max-width: 1199.98px) {
+
+} */
+
+/* Extra large devices (large desktops)
+No media query since the extra-large breakpoint has no upper bound on its width */
